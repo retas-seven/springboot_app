@@ -1,0 +1,35 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link href="../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+      <title>MyBootApp</title>
+    </head>
+    
+    <body>
+      <div>
+        <h2>ログイン</h2>
+      </div>
+      <form method="post">
+        <div class="form-group">
+          <label for="email">メールアドレス</label>
+          <input type="email" id="email" name="email" placeholder="mail@example.com">
+        </div>
+        <div>
+          <label for="password">パスワード</label>
+          <input type="password" id="password" name="password">
+        </div>
+        <div>
+          <input type="checkbox" id="remember_me" name="remember_me">
+          <label for="remember_me">ログイン状態を保持する</label>
+        </div>
+        <div>
+          <button type="submit" id="login_button">ログイン</button>
+        </div>
+      </form>
+
+      <script>
+      </script>
+    </body>
+</html>
