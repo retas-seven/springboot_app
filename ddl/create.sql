@@ -1,5 +1,3 @@
-CREATE DATABASE mybootapp CHARACTER SET = UTF8;
+CREATE USER mybootapp_user WITH PASSWORD 'mybootapp_user' SUPERUSER;
 
-CREATE USER mybootapp_user IDENTIFIED BY 'mybootapp_user!';
-
-GRANT ALL ON mybootapp.* TO mybootapp_user;
+CREATE DATABASE mybootapp OWNER = mybootapp_user TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C' LC_CTYPE = 'C';
