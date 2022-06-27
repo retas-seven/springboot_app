@@ -14,6 +14,6 @@ select
   update_user_id,
   version
 from
-  user
+  account
 where
-  user_id = /* userId */'a'
+  email = /* email */'a'

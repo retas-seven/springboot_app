@@ -11,29 +11,29 @@ import org.seasar.doma.jdbc.entity.PreUpdateContext;
 /**
  * 
  */
-public class UserListener implements EntityListener<User> {
+public class AccountListener implements EntityListener<Account> {
 
     @Override
-    public void preInsert(User entity, PreInsertContext<User> context) {
+    public void preInsert(Account entity, PreInsertContext<Account> context) {
     }
 
     @Override
-    public void preUpdate(User entity, PreUpdateContext<User> context) {
+    public void preUpdate(Account entity, PreUpdateContext<Account> context) {
     }
 
     @Override
-    public void preDelete(User entity, PreDeleteContext<User> context) {
+    public void preDelete(Account entity, PreDeleteContext<Account> context) {
     }
 
     @Override
-    public void postInsert(User entity, PostInsertContext<User> context) {
+    public void postInsert(Account entity, PostInsertContext<Account> context) {
     }
 
     @Override
-    public void postUpdate(User entity, PostUpdateContext<User> context) {
+    public void postUpdate(Account entity, PostUpdateContext<Account> context) {
     }
 
     @Override
-    public void postDelete(User entity, PostDeleteContext<User> context) {
+    public void postDelete(Account entity, PostDeleteContext<Account> context) {
     }
 }
