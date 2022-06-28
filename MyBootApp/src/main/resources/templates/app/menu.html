@@ -8,7 +8,9 @@
     </head>
     <body>
         <h2>MENU</h2>
-        <script>
-        </script>
+        <a th:href="@{'/'}">TOP</a>
+        <form th:action="@{/logout}" name="logout" method="POST">
+		    <a href="javascript:logout.submit()">ログアウト</a>
+		</form>
     </body>
 </html>

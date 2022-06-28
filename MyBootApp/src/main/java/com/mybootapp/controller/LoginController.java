@@ -21,7 +21,7 @@ public class LoginController {
 	
 	@Autowired
 	AccountDao accountDao;
-	
+
 	/**
 	 * ログイン画面表示
 	 * @return ログイン画面パス
