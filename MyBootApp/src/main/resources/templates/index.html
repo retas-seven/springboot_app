@@ -9,7 +9,7 @@
     <body>
         <h2>INDEX</h2>
         <div sec:authorize="isAuthenticated()">
-			ユーザ名：<span sec:authentication="principal.username"></span>
+			ユーザ名：<span sec:authentication="principal.username"></span>（<span sec:authentication="principal.usernameKana"></span>）
 		</div>
 		<div sec:authorize="isAnonymous()">
         	<a th:href="@{'/login'}">ログイン</a>

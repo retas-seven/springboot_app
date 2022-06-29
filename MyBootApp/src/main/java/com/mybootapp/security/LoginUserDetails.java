@@ -51,4 +51,13 @@ public class LoginUserDetails implements UserDetails {
 	public String getPassword() {
 		return account.getPassword();
 	}
+    
+	public String getEmail() {
+		return account.getEmail();
+	}
+	
+	public String getUsernameKana() {
+		return account.getLastnameKana() + " " + account.getFirstnameKana();
+	}
+
 }
