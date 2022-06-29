@@ -10,7 +10,18 @@
         <h2>MENU</h2>
         <a th:href="@{'/'}">TOP</a>
         <form th:action="@{/logout}" name="logout" method="POST">
-		    <a href="javascript:logout.submit()">ログアウト</a>
+        	<div>
+				ユーザ名：<span sec:authentication="principal.username"></span>
+			</div>
+        	<div sec:authorize="hasRole('ADMIN')">
+		    	<button type="submit" name="btn_func_admin" value="1">管理者機能</button>
+		    </div>
+        	<div sec:authorize="hasRole('USER')">
+		    	<button type="submit" name="btn_func_user" value="1">ユーザ機能</button>
+		    </div>
+        	<div>
+		    	<a href="javascript:logout.submit()">ログアウト</a>
+		    </div>
 		</form>
     </body>
 </html>

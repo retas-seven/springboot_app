@@ -20,6 +20,9 @@ public class WebSecurityConfig {
                 .defaultSuccessUrl("/menu", true)
                 .failureUrl("/login?error")
                 .permitAll()
+        ).rememberMe( remember -> remember
+                .rememberMeParameter("remember-me")
+                .tokenValiditySeconds(86400) // 1ヶ月（秒）
         ).logout(logout -> logout
         		.logoutUrl("/logout")
                 .logoutSuccessUrl("/")

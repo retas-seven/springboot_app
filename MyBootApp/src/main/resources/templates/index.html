@@ -8,7 +8,17 @@
     </head>
     <body>
         <h2>INDEX</h2>
-        <a th:href="@{'/login'}">ログイン</a>
-        <a th:href="@{'/regist'}">新規登録</a>
+        <div sec:authorize="isAuthenticated()">
+			ユーザ名：<span sec:authentication="principal.username"></span>
+		</div>
+		<div sec:authorize="isAnonymous()">
+        	<a th:href="@{'/login'}">ログイン</a>
+        </div>
+		<div sec:authorize="isAuthenticated()">
+        	<a th:href="@{'/menu'}">メニュー</a>
+        </div>
+        <div>
+        	<a th:href="@{'/regist'}">新規登録</a>
+        </div>
     </body>
 </html>
