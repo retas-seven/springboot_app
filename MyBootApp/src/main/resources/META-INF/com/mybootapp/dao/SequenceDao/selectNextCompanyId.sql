@@ -1,0 +1,1 @@
+SELECT nextval('COMPANY_ID_SEQ')

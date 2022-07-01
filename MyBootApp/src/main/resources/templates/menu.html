@@ -10,7 +10,7 @@
         <h2>MENU</h2>
         <a th:href="@{'/'}">TOP</a>
         <form th:action="@{/logout}" name="logout" method="POST">
-        	<div>
+        	<div sec:authorize="isAuthenticated()">
 				ユーザ名：<span sec:authentication="principal.username"></span>（<span sec:authentication="principal.usernameKana"></span>）<br>
 				メールアドレス：<span sec:authentication="principal.email"></span>
 			</div>

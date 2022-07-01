@@ -33,7 +33,7 @@ public class WebSecurityConfig {
                 .mvcMatchers(
                 	"/",
                 	"/login",
-                	"/regist",
+                	"/regist/**",
                 	"/exec_regist",
             	    "/img/**",
         	        "/css/**",

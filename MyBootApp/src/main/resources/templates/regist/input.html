@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link href="../../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+      <title>MyBootApp</title>
+    </head>
+    
+    <body>
+      <div>
+        <h2>新規登録</h2>
+      </div>
+      <form th:action="@{regist/exec_regist}" th:object="${registForm}" method="post">
+        <div class="form-group">
+          <label for="email">メールアドレス</label>
+          <input type="email" th:field="*{email}" placeholder="mail@example.com">
+        </div>
+        <div>
+          <label for="password">パスワード</label>
+          <input type="password" th:field="*{password}" placeholder="パスワードを設定" />
+          <input type="password" th:field="*{confirmPassword}" placeholder="同じパスワードを入力" />
+        </div>
+        <div>
+          <label for="lastnameKana">ユーザ名カナ</label>
+          <input type="text" th:field="*{lastnameKana}" />
+          <input type="text" th:field="*{firstnameKana}" />
+        </div>
+        <div>
+          <label for="lastname">ユーザ名</label>
+          <input type="text" th:field="*{lastname}" />
+          <input type="text" th:field="*{firstname}" />
+        </div>
+        <div>
+          <button type="submit" id="btn_regist">新規登録</button>
+        </div>
+      </form>
+
+      <script>
+      </script>
+    </body>
+</html>

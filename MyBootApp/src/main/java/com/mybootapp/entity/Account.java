@@ -1,6 +1,7 @@
 package com.mybootapp.entity;
 
 import java.sql.Timestamp;
+
 import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
 import org.seasar.doma.Id;
