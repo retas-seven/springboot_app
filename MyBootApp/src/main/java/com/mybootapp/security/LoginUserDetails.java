@@ -6,15 +6,18 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.mybootapp.entity.Account;
+import com.mybootapp.entity.Company;
 
 public class LoginUserDetails implements UserDetails {
 	
 	private final Account account;
 	private final Collection<GrantedAuthority> authorities;
+	private final Company company;
 
-	public LoginUserDetails(Account account, Collection<GrantedAuthority> authorities) {
+	public LoginUserDetails(Account account, Collection<GrantedAuthority> authorities, Company company) {
     	this.account = account;
     	this.authorities = authorities;
+    	this.company = company;
     }
 
     @Override
@@ -60,4 +63,12 @@ public class LoginUserDetails implements UserDetails {
 		return account.getLastnameKana() + " " + account.getFirstnameKana();
 	}
 
+	public String getEmpCode() {
+		return account.getEmpCode();
+	}
+
+    public String getCompanyName() {
+		return company.getCompanyName();
+	}
+	
 }

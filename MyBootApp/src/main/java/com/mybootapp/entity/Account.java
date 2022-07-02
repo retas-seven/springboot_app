@@ -4,11 +4,14 @@ import java.sql.Timestamp;
 
 import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
+import org.seasar.doma.GeneratedValue;
+import org.seasar.doma.GenerationType;
 import org.seasar.doma.Id;
 import org.seasar.doma.Table;
 import org.seasar.doma.Version;
 
 /**
+ * アカウント
  */
 @Entity(listener = AccountListener.class)
 @Table(name = "account")
@@ -16,8 +19,9 @@ public class Account {
 
     /** */
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    String userId;
+    Integer userId;
 
     /** */
     @Column(name = "email")
@@ -25,15 +29,15 @@ public class Account {
 
     /** */
     @Column(name = "company_id")
-    String companyId;
+    Integer companyId;
 
     /** */
-    @Column(name = "lastname_kana")
-    String lastnameKana;
+    @Column(name = "emp_code")
+    String empCode;
 
     /** */
-    @Column(name = "firstname_kana")
-    String firstnameKana;
+    @Column(name = "password")
+    String password;
 
     /** */
     @Column(name = "lastname")
@@ -44,8 +48,12 @@ public class Account {
     String firstname;
 
     /** */
-    @Column(name = "password")
-    String password;
+    @Column(name = "lastname_kana")
+    String lastnameKana;
+
+    /** */
+    @Column(name = "firstname_kana")
+    String firstnameKana;
 
     /** */
     @Column(name = "role_id")
@@ -57,7 +65,7 @@ public class Account {
 
     /** */
     @Column(name = "regist_user_id")
-    String registUserId;
+    Integer registUserId;
 
     /** */
     @Column(name = "update_date")
@@ -65,7 +73,7 @@ public class Account {
 
     /** */
     @Column(name = "update_user_id")
-    String updateUserId;
+    Integer updateUserId;
 
     /** */
     @Version
@@ -77,7 +85,7 @@ public class Account {
      * 
      * @return the userId
      */
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
@@ -86,7 +94,7 @@ public class Account {
      * 
      * @param userId the userId
      */
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -113,7 +121,7 @@ public class Account {
      * 
      * @return the companyId
      */
-    public String getCompanyId() {
+    public Integer getCompanyId() {
         return companyId;
     }
 
@@ -122,44 +130,44 @@ public class Account {
      * 
      * @param companyId the companyId
      */
-    public void setCompanyId(String companyId) {
+    public void setCompanyId(Integer companyId) {
         this.companyId = companyId;
     }
 
     /** 
-     * Returns the lastnameKana.
+     * Returns the empCode.
      * 
-     * @return the lastnameKana
+     * @return the empCode
      */
-    public String getLastnameKana() {
-        return lastnameKana;
+    public String getEmpCode() {
+        return empCode;
     }
 
     /** 
-     * Sets the lastnameKana.
+     * Sets the empCode.
      * 
-     * @param lastnameKana the lastnameKana
+     * @param empCode the empCode
      */
-    public void setLastnameKana(String lastnameKana) {
-        this.lastnameKana = lastnameKana;
+    public void setEmpCode(String empCode) {
+        this.empCode = empCode;
     }
 
     /** 
-     * Returns the firstnameKana.
+     * Returns the password.
      * 
-     * @return the firstnameKana
+     * @return the password
      */
-    public String getFirstnameKana() {
-        return firstnameKana;
+    public String getPassword() {
+        return password;
     }
 
     /** 
-     * Sets the firstnameKana.
+     * Sets the password.
      * 
-     * @param firstnameKana the firstnameKana
+     * @param password the password
      */
-    public void setFirstnameKana(String firstnameKana) {
-        this.firstnameKana = firstnameKana;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /** 
@@ -199,21 +207,39 @@ public class Account {
     }
 
     /** 
-     * Returns the password.
+     * Returns the lastnameKana.
      * 
-     * @return the password
+     * @return the lastnameKana
      */
-    public String getPassword() {
-        return password;
+    public String getLastnameKana() {
+        return lastnameKana;
     }
 
     /** 
-     * Sets the password.
+     * Sets the lastnameKana.
      * 
-     * @param password the password
+     * @param lastnameKana the lastnameKana
      */
-    public void setPassword(String password) {
-        this.password = password;
+    public void setLastnameKana(String lastnameKana) {
+        this.lastnameKana = lastnameKana;
+    }
+
+    /** 
+     * Returns the firstnameKana.
+     * 
+     * @return the firstnameKana
+     */
+    public String getFirstnameKana() {
+        return firstnameKana;
+    }
+
+    /** 
+     * Sets the firstnameKana.
+     * 
+     * @param firstnameKana the firstnameKana
+     */
+    public void setFirstnameKana(String firstnameKana) {
+        this.firstnameKana = firstnameKana;
     }
 
     /** 
@@ -257,7 +283,7 @@ public class Account {
      * 
      * @return the registUserId
      */
-    public String getRegistUserId() {
+    public Integer getRegistUserId() {
         return registUserId;
     }
 
@@ -266,7 +292,7 @@ public class Account {
      * 
      * @param registUserId the registUserId
      */
-    public void setRegistUserId(String registUserId) {
+    public void setRegistUserId(Integer registUserId) {
         this.registUserId = registUserId;
     }
 
@@ -293,7 +319,7 @@ public class Account {
      * 
      * @return the updateUserId
      */
-    public String getUpdateUserId() {
+    public Integer getUpdateUserId() {
         return updateUserId;
     }
 
@@ -302,7 +328,7 @@ public class Account {
      * 
      * @param updateUserId the updateUserId
      */
-    public void setUpdateUserId(String updateUserId) {
+    public void setUpdateUserId(Integer updateUserId) {
         this.updateUserId = updateUserId;
     }
 

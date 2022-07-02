@@ -11,8 +11,10 @@
         <a th:href="@{'/'}">TOP</a>
         <form th:action="@{/logout}" name="logout" method="POST">
         	<div sec:authorize="isAuthenticated()">
+        		会社名：<span sec:authentication="principal.companyName"></span><br>
+        		社員コード：<span sec:authentication="principal.empCode"></span><br>
+				メールアドレス：<span sec:authentication="principal.email"></span><br>
 				ユーザ名：<span sec:authentication="principal.username"></span>（<span sec:authentication="principal.usernameKana"></span>）<br>
-				メールアドレス：<span sec:authentication="principal.email"></span>
 			</div>
         	<div sec:authorize="hasRole('ADMIN')">
 		    	<button type="submit" name="btn_func_admin" value="1">管理者機能</button>

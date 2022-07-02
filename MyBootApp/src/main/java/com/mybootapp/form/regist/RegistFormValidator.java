@@ -34,19 +34,9 @@ public class RegistFormValidator implements Validator {
             return;
         }
 
-    	// 未入力チェック
-    	if (StringUtils.isEmpty(form.getPassword())) {
-    		errors.rejectValue("password", "passwordEmpty.message");
-    		return;
-    	}
-    	if (StringUtils.isEmpty(form.getConfirmPassword())) {
-    		errors.rejectValue("confirmPassword", "passwordEmpty.message");
-    		return;
-    	}
-    	
     	// パスワードの一致チェック
     	if (!StringUtils.equals(form.getPassword(), form.getConfirmPassword())) {
-    		errors.rejectValue("confirmPassword", "passwordMismatch.message");
+    		errors.rejectValue("password", "password_mismatch");
     	}
     }
     
@@ -60,7 +50,7 @@ public class RegistFormValidator implements Validator {
         
         // 既に登録されているメールアドレスかチェック
     	if (apUtil.existUser(form.getEmail())) {
-    		errors.rejectValue("email", "alreadyRegisteredEmail.message");
+    		errors.rejectValue("email", "already_registered_email");
     	}
     }
 }

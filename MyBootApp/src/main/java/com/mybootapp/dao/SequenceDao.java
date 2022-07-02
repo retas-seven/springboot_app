@@ -11,8 +11,5 @@ import org.seasar.doma.boot.ConfigAutowireable;
 public interface SequenceDao {
 
     @Select
-    String selectNextUserId();
-    
-    @Select
-    String selectNextCompanyId();
+    Integer selectNextCompanyId();
 }

@@ -8,7 +8,11 @@ import lombok.Data;
 @Data
 public class RegistDto {
 
+    private String companyName;
+    
     private String email;
+    
+    private String empCode;
 
     private String password;
     

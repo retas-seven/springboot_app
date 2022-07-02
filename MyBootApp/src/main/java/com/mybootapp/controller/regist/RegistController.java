@@ -3,6 +3,8 @@ package com.mybootapp.controller.regist;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -66,7 +68,11 @@ public class RegistController {
 	 * @return メニュー画面パス
 	 */
 	@RequestMapping(value="exec_regist", method=RequestMethod.POST)
-	public String execRegist(RegistForm registForm) {
+	public String execRegist(@Validated RegistForm registForm, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "regist/input";
+        }
+        
 		RegistDto registDto = new RegistDto();
 		BeanUtils.copyProperties(registForm, registDto);
 		// 新規登録
