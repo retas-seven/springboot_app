@@ -32,42 +32,40 @@ public class RegistService {
 	ApUtil apUtil;
 	
 	/**
-	 * 新規登録処理
+	 * 新規登録処理。
+	 * @param registDto
 	 */
 	public void regist(RegistDto registDto) {
-        // 既に登録されているメールアドレスかチェック
-    	if (apUtil.existUser(registDto.getEmail())) {
-    		throw new RuntimeException("既に登録されているメールアドレスです。");
-    	}
     	Integer nextCompanyId = sequenceDao.selectNextCompanyId();
-    	registCompany(registDto.getCompanyName(), nextCompanyId);
-    	registAccount(registDto, nextCompanyId);
+    	Timestamp currentTimestamp = apUtil.selectCurrentTimestamp();
+    	registCompany(registDto.getCompanyName(), nextCompanyId, currentTimestamp);
+    	registAccount(registDto, nextCompanyId, currentTimestamp);
 	}
 
 	/**
-	 * 会社情報を登録する
+	 * 会社情報を登録する。
 	 * @param companyName
 	 * @param nextCompanyId
 	 */
-	private void registCompany(String companyName, Integer nextCompanyId) {
+	private void registCompany(String companyName, Integer nextCompanyId, Timestamp currentTimestamp) {
 		Company company = new Company();
 		
 		company.setCompanyId(nextCompanyId);
 		company.setCompanyName(companyName);
 		company.setRegistUserId(0);
-		company.setRegistDate(new Timestamp(System.currentTimeMillis()));
+		company.setRegistDate(currentTimestamp);
 		company.setUpdateUserId(0);
-		company.setUpdateDate(new Timestamp(System.currentTimeMillis()));
+		company.setUpdateDate(currentTimestamp);
 		
 		companyDao.insert(company);
 	}
 	
 	/**
-	 * アカウント情報を登録する
+	 * アカウント情報を登録する。
 	 * @param registDto
 	 * @param nextCompanyId
 	 */
-	private void registAccount(RegistDto registDto, Integer nextCompanyId) {
+	private void registAccount(RegistDto registDto, Integer nextCompanyId, Timestamp currentTimestamp) {
 		Account account = new Account();
 		BeanUtils.copyProperties(registDto, account);
 		
@@ -76,9 +74,9 @@ public class RegistService {
 		account.setPassword(new BCryptPasswordEncoder().encode(registDto.getPassword())); // パスワードのハッシュ化
 		account.setRoleId(Role.ADMIN.toString()); // 新規登録者には管理者権限を設定
 		account.setRegistUserId(0);
-		account.setRegistDate(new Timestamp(System.currentTimeMillis()));
+		account.setRegistDate(currentTimestamp);
 		account.setUpdateUserId(0);
-		account.setUpdateDate(new Timestamp(System.currentTimeMillis()));
+		account.setUpdateDate(currentTimestamp);
 		
 		accountDao.insert(account);	
 	}

@@ -1,5 +1,7 @@
 package com.mybootapp.util;
 
+import java.sql.Timestamp;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -7,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import com.mybootapp.dao.AccountDao;
+import com.mybootapp.dao.CommonDao;
 import com.mybootapp.entity.Account;
 
 @Component
@@ -14,6 +17,9 @@ public class ApUtil {
 	
 	@Autowired
 	AccountDao accountDao;
+	
+	@Autowired
+	CommonDao commonDao;
 	
 	/**
 	 * ログイン済みであるか判別する。
@@ -38,5 +44,13 @@ public class ApUtil {
 			return false;
 		}
 		return true;
+	}
+	
+	/**
+	 * システム日付を取得する。
+	 * @return
+	 */
+	public Timestamp selectCurrentTimestamp() {
+		return commonDao.selectCurrentTimestamp();
 	}
 }
