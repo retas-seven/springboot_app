@@ -4,6 +4,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link href="../../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+      <link href="../../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
       <title>MyBootApp</title>
     </head>
     
@@ -15,39 +16,39 @@
       <form th:action="@{/regist/exec_regist}" th:object="${registForm}" method="post">
         <div>
           <label for="lastname">会社名</label>
-          <input type="text" th:field="*{companyName}" />
-          <p th:if="${#fields.hasErrors('companyName')}" th:errors="*{companyName}" />
+          <input type="text" th:field="*{companyName}" th:classappend="${#fields.hasErrors('companyName')} ? 'err-text'"/>
+          <p th:if="${#fields.hasErrors('companyName')}" th:errors="*{companyName}"  class="err_msg"/>
         </div>
         <div class="form-group">
           <label for="email">メールアドレス</label>
-          <input type="email" th:field="*{email}" placeholder="mail@example.com">
-          <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
+          <input type="email" th:field="*{email}" placeholder="mail@example.com" th:classappend="${#fields.hasErrors('email')} ? 'err-text'">
+          <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"  class="err_msg"/>
         </div>
         <div>
           <label for="lastname">社員コード</label>
-          <input type="text" th:field="*{empCode}" />
-          <p th:if="${#fields.hasErrors('empCode')}" th:errors="*{empCode}" />
+          <input type="text" th:field="*{empCode}" th:classappend="${#fields.hasErrors('empCode')} ? 'err-text'"/>
+          <p th:if="${#fields.hasErrors('empCode')}" th:errors="*{empCode}" class="err_msg"/>
         </div>
         <div>
           <label for="lastnameKana">姓・名（カナ）</label>
-          <input type="text" th:field="*{lastnameKana}" />
-          <input type="text" th:field="*{firstnameKana}" />
-          <p th:if="${#fields.hasErrors('lastnameKana')}" th:errors="*{lastnameKana}" />
-          <p th:if="${#fields.hasErrors('firstnameKana')}" th:errors="*{firstnameKana}" />
+          <input type="text" th:field="*{lastnameKana}" th:classappend="${#fields.hasErrors('lastnameKana')} ? 'err-text'"/>
+          <input type="text" th:field="*{firstnameKana}" th:classappend="${#fields.hasErrors('firstnameKana')} ? 'err-text'"/>
+          <p th:if="${#fields.hasErrors('lastnameKana')}" th:errors="*{lastnameKana}"  class="err_msg"/>
+          <p th:if="${#fields.hasErrors('firstnameKana')}" th:errors="*{firstnameKana}"  class="err_msg"/>
         </div>
         <div>
           <label for="lastname">姓・名</label>
-          <input type="text" th:field="*{lastname}" />
-          <input type="text" th:field="*{firstname}" />
-          <p th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" />
-          <p th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" />
+          <input type="text" th:field="*{lastname}" th:classappend="${#fields.hasErrors('lastname')} ? 'err-text'"/>
+          <input type="text" th:field="*{firstname}" th:classappend="${#fields.hasErrors('firstname')} ? 'err-text'"/>
+          <p th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"  class="err_msg"/>
+          <p th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"  class="err_msg"/>
         </div>
         <div>
           <label for="password">パスワード</label>
-          <input type="password" th:field="*{password}" placeholder="パスワードを設定" />
-          <input type="password" th:field="*{confirmPassword}" placeholder="同じパスワードを入力" />
-          <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" />
-          <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" />
+          <input type="password" th:field="*{password}" placeholder="パスワードを設定" th:classappend="${#fields.hasErrors('password')} ? 'err-text'"/>
+          <input type="password" th:field="*{confirmPassword}" placeholder="同じパスワードを入力" th:classappend="${#fields.hasErrors('confirmPassword')} ? 'err-text'"/>
+          <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"  class="err_msg"/>
+          <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"  class="err_msg"/>
         </div>
         <div>
           <button type="submit" id="btn_regist">新規登録</button>
