@@ -1,9 +1,6 @@
 package com.mybootapp.dto.regist;
 
 import lombok.Data;
-/**
- * 新規登録画面Form
- */
 
 @Data
 public class RegistDto {

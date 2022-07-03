@@ -10,11 +10,20 @@ import org.springframework.stereotype.Component;
 import com.mybootapp.exceptioon.ApplicationException;
 import com.mybootapp.exceptioon.SystemException;
 
+/**
+ * アプリ標準のAOP
+ */
 @Aspect
 @Component
 public class CommonAop {
 	private static final Logger log = LoggerFactory.getLogger(CommonAop.class);
 	
+	/**
+	 * コントローラーの処理前後のログ出力とエラーハンドリングを行う。
+	 * @param proceedingJoinPoint
+	 * @return 処理結果
+	 * @throws Throwable
+	 */
 	@Around("execution(* com.mybootapp.controller..*.*(..))")
     public Object invoke(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Object ret = null;
@@ -28,7 +37,7 @@ public class CommonAop {
 
         // 例外発生時は内容をログに出力する。例外のハンドリングは例外ハンドラクラスで行うため、再スローする。
         } catch (ApplicationException e) {
-            log.warn("アプリケーションエラー発生：" + e.toString());
+            log.warn("アプリケーションエラー発生：" + e.getApplicationErrorMessage());
             throw e;
             
         } catch (SystemException e) {
@@ -48,6 +57,12 @@ public class CommonAop {
         return ret;
     }
     
+	/**
+	 * サービスの処理前後のログ出力を行う。
+	 * @param proceedingJoinPoint
+	 * @return 処理結果
+	 * @throws Throwable
+	 */
     @Around("execution(* com.mybootapp.service..*.*(..))")
     public Object invokeService(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Object ret = null;

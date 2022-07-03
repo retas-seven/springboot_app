@@ -1,21 +1,21 @@
 package com.mybootapp.exceptioon;
 
 public class ApplicationException extends RuntimeException {
-	private String errMsg;
+	private String applicationErrorMessage;
 
 	@SuppressWarnings("unused")
 	private ApplicationException() {}
 
-	public ApplicationException(String errMsg) {
+	public ApplicationException(String applicationErrorMessage) {
 		super();
-		this.errMsg = errMsg;
+		this.applicationErrorMessage = applicationErrorMessage;
 	}
 
-	public String getErrMsg() {
-		return errMsg;
+	public String getApplicationErrorMessage() {
+		return applicationErrorMessage;
 	}
 
-	public void setErrMsg(String errMsg) {
-		this.errMsg = errMsg;
+	public void setApplicationErrorMessage(String applicationErrorMessage) {
+		this.applicationErrorMessage = applicationErrorMessage;
 	}
 }
