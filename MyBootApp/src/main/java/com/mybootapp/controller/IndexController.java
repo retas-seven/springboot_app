@@ -2,6 +2,7 @@ package com.mybootapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -28,6 +29,17 @@ public class IndexController {
 		}
 	}
 
+	/**
+	 * ログイン画面へ遷移する。ログインエラー時に実行される。
+	 * @param model
+	 * @return ログイン画面パス
+	 */
+    @GetMapping("/login_error")
+    public String loginError(Model model) {
+        model.addAttribute("loginErrorMsg", apUtil.getMessage("loginError"));
+        return "login";
+    }
+    
 	/**
 	 * メニュー画面表示
 	 * @return メニュー画面パス

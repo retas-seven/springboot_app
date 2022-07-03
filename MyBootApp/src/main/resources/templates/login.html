@@ -12,6 +12,10 @@
       <div>
         <h2>ログイン</h2>
       </div>
+      
+      <!--/* ログインエラー時に表示するエラーメッセージ */-->
+      <p th:if="${loginErrorMsg}" class="err_msg" th:text="${loginErrorMsg}"></p>
+      
       <form th:action="@{/authenticate}" method="post">
         <div class="form-group">
           <label for="email">メールアドレス</label>

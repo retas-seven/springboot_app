@@ -3,6 +3,7 @@ package com.mybootapp.util;
 import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,6 +21,9 @@ public class ApUtil {
 	
 	@Autowired
 	CommonDao commonDao;
+	
+	@Autowired
+	MessageSource messageSource;
 	
 	/**
 	 * ログイン済みであるか判別する。
@@ -48,9 +52,28 @@ public class ApUtil {
 	
 	/**
 	 * システム日付を取得する。
-	 * @return
+	 * @return システム日付
 	 */
 	public Timestamp selectCurrentTimestamp() {
 		return commonDao.selectCurrentTimestamp();
+	}
+	
+	/**
+	 * messages.propertiesからメッセージを取得する。
+	 * @param key メッセージのキー
+	 * @return メッセージ
+	 */
+	public String getMessage(String key) {
+		return getMessage(key, null);
+	}
+	
+	/**
+	 * messages.propertiesからメッセージを取得する。
+	 * @param key メッセージのキー
+	 * @param args 置換文字列
+	 * @return メッセージ
+	 */
+	public String getMessage(String key, Object[] args) {
+		return messageSource.getMessage(key, args, null);
 	}
 }

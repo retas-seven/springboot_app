@@ -18,7 +18,7 @@ public class WebSecurityConfig {
                 .passwordParameter("password") // ユーザー名、パスワードのパラメータ名
                 .loginPage("/login")
                 .defaultSuccessUrl("/menu", true)
-                .failureUrl("/login?error")
+                .failureUrl("/login_error")
                 .permitAll()
         ).rememberMe( remember -> remember
                 .rememberMeParameter("remember-me")
