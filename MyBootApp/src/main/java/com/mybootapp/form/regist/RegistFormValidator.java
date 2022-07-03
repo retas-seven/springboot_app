@@ -36,7 +36,7 @@ public class RegistFormValidator implements Validator {
 
     	// パスワードの一致チェック
     	if (!StringUtils.equals(form.getPassword(), form.getConfirmPassword())) {
-    		errors.rejectValue("password", "password_mismatch");
+    		errors.rejectValue("password", "passwordUnmatch");
     	}
     }
     
@@ -50,7 +50,7 @@ public class RegistFormValidator implements Validator {
         
         // 既に登録されているメールアドレスかチェック
     	if (apUtil.existUser(form.getEmail())) {
-    		errors.rejectValue("email", "already_registered_email");
+    		errors.rejectValue("email", "alreadyRegisteredEmail");
     	}
     }
 }
