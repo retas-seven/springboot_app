@@ -2,7 +2,7 @@
 <project name="doma-gen-example" default="gen" basedir=".">
     
     <property name="javaDestDir" value="src/main/java"/>
-    <property name="sqlDestDir" value="src/main/java"/>
+    <property name="sqlDestDir" value="src/main/resources"/>
     <property name="dialectName" value="postgres"/>
 	<property name="driverClassName" value="org.postgresql.Driver"/>
 	<property name="url" value="jdbc:postgresql://localhost:5432/mybootapp"/>
