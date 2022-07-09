@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOGS" value="/var/log" />
+
+    <appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+	    <encoder>
+	        <charset>UTF-8</charset>
+	        <pattern>%d{yyyy/MM/dd HH:mm:ss} %-5level [%thread] - %msg%n</pattern>
+	    </encoder>
+    </appender>
+
+    <appender name="RollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<!--ファイル名設定 -->
+        <file>${LOGS}/application.log</file>
+        
+	    <!--ログ出力フォーマット設定 -->
+	    <encoder>
+	        <charset>UTF-8</charset>
+	        <pattern>%d{yyyy/MM/dd HH:mm:ss} %-5level [%thread] - %msg%n</pattern>
+	    </encoder>
+
+	    <!--ログファイルのローテーション設定 -->
+	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	        <fileNamePattern>/var/log/application-%d{yyyy-MM-dd}.log</fileNamePattern>
+	        <maxHistory>3</maxHistory>
+	    </rollingPolicy>
+    </appender>
+    
+    <!-- ルートロガー -->
+    <root level="INFO">
+        <appender-ref ref="RollingFileAppender" />
+        <appender-ref ref="ConsoleAppender" />
+    </root>
+
+    <!-- アプリ標準ロガー -->
+    <logger name="defaultLogger" level="INFO">
+        <appender-ref ref="RollingFileAppender" />
+        <appender-ref ref="ConsoleAppender" />
+    </logger>
+</configuration>

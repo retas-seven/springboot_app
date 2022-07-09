@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.mybootapp.constant.ApConst;
 import com.mybootapp.exceptioon.ApplicationException;
 import com.mybootapp.exceptioon.SystemException;
 
@@ -16,7 +17,7 @@ import com.mybootapp.exceptioon.SystemException;
 @Aspect
 @Component
 public class CommonAop {
-	private static final Logger log = LoggerFactory.getLogger(CommonAop.class);
+	private final Logger log = LoggerFactory.getLogger(ApConst.DEFAULT_LOGGER);
 	
 	/**
 	 * コントローラーの処理前後のログ出力とエラーハンドリングを行う。
