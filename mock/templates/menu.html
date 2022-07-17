@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+      <link href="../../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
+        <title>MyBootApp</title>
+    </head>
+    <body>
+        <h2>MENU</h2>
+        <a th:href="@{'/'}">TOP</a>
+        <form th:action="@{/logout}" name="logout" method="POST">
+        	<div sec:authorize="isAuthenticated()">
+        		会社名：<span sec:authentication="principal.companyName"></span><br>
+        		社員コード：<span sec:authentication="principal.empCode"></span><br>
+				メールアドレス：<span sec:authentication="principal.email"></span><br>
+				ユーザ名：<span sec:authentication="principal.username"></span>（<span sec:authentication="principal.usernameKana"></span>）<br>
+			</div>
+        	<div sec:authorize="hasRole('ADMIN')">
+		    	<button type="submit" name="btn_func_admin" value="1">管理者機能</button>
+		    </div>
+        	<div sec:authorize="hasRole('USER')">
+		    	<button type="submit" name="btn_func_user" value="1">ユーザ機能</button>
+		    </div>
+        	<div>
+		    	<a href="javascript:logout.submit()">ログアウト</a>
+		    </div>
+		</form>
+    </body>
+</html>

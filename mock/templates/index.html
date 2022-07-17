@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+        <link href="../static/css/common.css" th:href="@{/css/common.css}" rel="stylesheet" />
+        <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
+        <title>TimeLeaf</title>
+    </head>
+    <body>
+        <span class="bg_gray"></span>
+        <span class="bg_green"></span>
+        <img class="title_leaf" src="../static/img/leaf.png" loading="lazy" alt="title">
+
+        <article class="article">
+            <!-- セクション01 -->
+            <section class="section_01">
+                <img class="title_logo" src="../static/img/logo.png" loading="lazy" alt="title">
+                <a class="sign_up_btn mt-3" href="#"><span>新規登録</span></a>
+                <a class="login_btn mt-2" href="#"><span>ログイン</span></a>
+                <div class="mt-3">
+                    <a class="sns_link" href="http://twitter.com/share"
+                        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;"
+                        rel="nofollow"><i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="sns_link ml-1" href="http://www.facebook.com/share.php"
+                        onclick="window.open(encodeURI(decodeURI(this.href)), 'FBwindow', 'width=554, height=470, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+                        rel="nofollow"><i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- セクション02 -->
+            <section class="section_02">
+                <div class="cards">
+                    <div class="card">
+                        <i class="material-icon">group</i>
+                        <p class="card_title">タイムカードをWEB化</p>
+                        <p class="light center">
+                            業務の開始・終了時間を<br>WEBで管理できます。<br>
+                            複数メンバーを管理可能です。
+                        </p>
+                    </div>
+                    <div class="card">
+                        <i class="material-icon">mood</i>
+                        <p class="card_title">これをやってみる</p>
+                        <p class="light center">
+                            Springbootの練習用プロジェクト。<br>
+                            Spring Security，DOMAなど<br>広く使われている機能を使用する。<br>
+                            いい感じの画面デザインを考える。
+                        </p>
+                    </div>
+                    <div class="card">
+                        <i class="material-icon">settings</i>
+                        <p class="card_title">開発環境</p>
+                        <p class="light center">
+                            Eclipse<br>
+                            Github<br>
+                            PostgreSQL<br>
+                            画像素材：illustAC
+                        </p>
+                    </div>
+                </div> 
+            </section>
+        </article>
+
+        <!-- フッター -->
+        <footer class="footer_global">
+            <div class="footer_content">
+                Springboot sample app 2022
+            </div>
+        </footer>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+</html>
