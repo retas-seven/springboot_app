@@ -1,0 +1,195 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap'); /* font-family: 'Yusei Magic', sans-serif; */
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap'); /* font-family: 'Montserrat', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap'); /* font-family: 'Zen Kaku Gothic Antique', sans-serif; */
+
+/* ------------------------------------------- */
+/* 全体の設定 */
+/* ------------------------------------------- */
+html {
+    font-size: 100%;
+}
+body {
+    letter-spacing: .1em;
+    font-size: 1rem; /* 1rem == 16px */
+    line-height: 1.6;
+    color: rgb(81, 81, 81);
+}
+img {
+    border: 0;
+}
+
+/* ------------------------------------------- */
+/* レイアウト設定 */
+/* ------------------------------------------- */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+}
+.bg_gray {
+	background-color: rgb(234, 234, 234);
+    position: absolute;
+    min-width: 5000px;
+    top: 22.5rem;
+	clip-path: polygon(0 0, 100% 70%, 100% 100%, 0 100%);
+    z-index: 1000;
+    height: 33rem;
+}
+.bg_green {
+	background-color: rgb(80, 251, 123);
+    position: absolute;
+    min-width: 5000px;
+    left: 11rem;
+	clip-path: polygon(4.9% 0, 100% 0, 100% 144%, 3% 75%);
+    z-index: 1100;
+    height: 42rem;
+}
+.title_leaf {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1200;
+}
+.article {
+    /* margin-left、margin-rightにautoで横に中央揃え */
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 2000;
+    position: relative;
+    width: 1200px;
+    /* border: solid 1px blue; */
+}
+/*
+@media all and (min-width: 1200px) {
+	.article {
+        margin-left: auto;
+	}
+}
+*/
+/* ------------------------------------------- */
+/* セクション01の設定 */
+/* ------------------------------------------- */
+.section_01 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 3.6rem 3rem 0 3rem;
+    /* border: solid 1px; */
+}
+.title_logo {
+    width: 312px;
+    height: 92px;
+}
+.sign_up_btn, .login_btn {
+    font-size: .9rem;
+    font-weight: 700;
+    letter-spacing: .05rem;
+    width: 22rem;
+    height: 2.15rem;
+    border-radius: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    /* font-family: 'Zen Kaku Gothic Antique', sans-serif; */
+}
+.sign_up_btn {
+    color: white;
+    background-color: rgb(242, 81, 117);
+}
+.login_btn {
+    color: rgb(242, 81, 117);
+    background-color: white;
+    border: solid 2px rgb(242, 81, 117);
+}
+.sign_up_btn::after, .login_btn::after {
+    font-family: 'Material Icons';
+    content: "chevron_right";
+    font-size: 1rem;
+    position: absolute;
+    right: 1rem;
+}
+.sns_link {
+    display: inline-block;
+    line-height: 2.4rem;
+    text-align: center;
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgb(134, 134, 134);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+/* ------------------------------------------- */
+/* セクション02の設定 */
+/* ------------------------------------------- */
+.section_02 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 6.5rem 3rem 6.3rem 3rem ;
+    /* border: solid 1px salmon; */
+}
+.cards {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* position: relative; */
+}
+.card {
+    width: 33.333%;
+    margin: 0 .6rem;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+    padding: .5rem .75rem;
+}
+.card > p {
+    line-height: 2rem;
+}
+.material-icon {
+    color: rgb(238, 110, 115);
+    font-size: 4.5rem;
+    display: block;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.2;
+}
+.card_title {
+    color:rgb(110, 110, 110);
+    font-size: 1.5rem;
+    /* font-weight: 500; */
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-top: 0;
+    /* font-family: 'Yusei Magic', sans-serif; */
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+/* ------------------------------------------- */
+/* フッターの設定 */
+/* ------------------------------------------- */
+.footer_global {
+    width: 100vw;
+    flex: 1;
+    background-color: rgb(245, 190, 169);
+    display: flex;
+    justify-content: center;
+}
+
+.footer_content {
+    width: 1200px;
+    color:rgb(83, 57, 0);
+    font-size: .9rem;
+    padding: 3.6rem 3rem 0 3rem;
+    /* border: solid 1px blue; */
+}
