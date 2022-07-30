@@ -4,6 +4,14 @@
 
 * SpringBoot練習用アプリ
 
+* タイムカードをWEBで入力できるアプリ
+
+## 画面サンプル
+
+* TOP（他の画面は作成中）
+
+![title](readme/title.png)
+
 ## 開発環境
 
 * JDK17
@@ -12,7 +20,7 @@
 
 * SpringSecurity
 
-* Doma
+* Doma, Doma-Gen
 
 * Eclipse
 
