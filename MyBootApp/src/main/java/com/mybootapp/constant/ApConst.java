@@ -1,7 +1,7 @@
 package com.mybootapp.constant;
 
 /**
- * 定数クラス
+ * 定数
  */
 public class ApConst {
 	/** loggack-spring.xmlに定義したアプリ標準ロガー名 */
